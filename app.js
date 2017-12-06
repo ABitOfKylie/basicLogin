@@ -11,6 +11,9 @@ var express					= require("express"),
 var app = express();
 
 app.set("view engine", "ejs");
+app.use(express.static("public"));
+// app.use('public', express.static(__dirname + 'public'));
+
 
 app.use(bodyParser.urlencoded({extended:true}));
 
@@ -23,6 +26,21 @@ app.use(bodyParser.urlencoded({extended:true}));
 //Routes
 app.get("/", function(req, res){
     res.render("home");
+});
+app.get("/home2", function(req, res){
+    res.render("home2");
+});
+app.get("/signup", function(req, res){
+	res.render("signup");
+});
+app.get("/login", function(req, res){
+	res.render("login");
+});
+app.get("/logout", function(req, res){
+	res.render("logout");
+});
+app.get("/secret", function(req, res){
+	res.render("secret");
 });
 
 
