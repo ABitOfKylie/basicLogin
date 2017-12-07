@@ -1,20 +1,38 @@
 body{
-  /*background: #D6EAF8;
-  color:white;
-  background-image: url(./images/keysShelf.jpg);
-  background-size: auto;*/
-    border: 2px solid black;
+/*background: #D6EAF8;
+*/
+/*background: brown;
+*/
+  /*  border: 2px solid black;
     padding: 25px;
     background: url(./images/keysShelf.jpg);
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: 100% 100%;*/
     color:white;
+    padding-top: 0;
+}
+
+.container-fluid {
+  background-image: url("./images/keysShelf.jpg");
+  border: 2px solid burlywood;
+  padding: 25px;
+/*  background-color: cayenne;
+*/  background-size: 100%;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
+  color:white;
 
 }
+
+/*.container--blend {
+  background-blend-mode: screen;
+}*/
 
 .navbar{
   background: rgb(65, 54, 48);
-}
+  font-size: 19px;
+  border: 1px solid black;
+  }
 .navbar-brand{
   width:auto;
   height:80px;
@@ -79,7 +97,8 @@ a:hover {
 }
 .login-group {
   background: #ffffff;
-  color: #999999;
+  opacity:0.9;
+  color: rosybrown;
   border-radius: 8px;
   padding: 10px 20px;
 }
