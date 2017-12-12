@@ -1,10 +1,10 @@
 var express					= require("express"),
 	mongoose				= require("mongoose"),
 	bodyParser				= require("body-parser"),
-	// User					= require("./models/user"),
+	User					= require("./models/user"),
 	passport				= require("passport"),
 	LocalStrategy 			= require("passport-local"),
-	passportLocalMongooe	= require("passport-local-mongoose");
+	passportLocalMongoose	= require("passport-local-mongoose");
 
 var app = express();
 
@@ -23,30 +23,30 @@ app.use(express.static("public"));
 // }));
 
 // SCHEMA SETUP
-var campgroundSchema = new mongoose.Schema({
-   name: String,
-   image: String,
-   description: String
-});
+// var userSchema = new mongoose.Schema({
+//    name: String,
+//    image: String,
+//    description: String
+// });
 
-var User = mongoose.model("User", campgroundSchema);
+// var User = mongoose.model("User", UserSchema);
 
-User.create(
-     {
-	     name: "Joe", 
-	     email: "joe@gmail.com",
-	     username: "JoJoe",
-		 password: "password",
-		 confirmpw: "password"   
-     },
-     function(err, User){
-      if(err){
-          console.log(err);
-      } else {
-          console.log("NEWLY CREATED CAMPGROUND: ");
-          console.log(User);
-      }
-    });
+// User.create(
+//      {
+// 	     name: "Tiffany", 
+// 	     email: "diamond@gmail.com",
+// 	     username: "Flashy",
+// 		 password: "password",
+// 		 confirmpw: "password"   
+//      },
+//      function(err, User){
+//       if(err){
+//           console.log(err);
+//       } else {
+//           console.log("NEWLY CREATED User ");
+//           console.log(User);
+//       }
+//     });
 
 //Routes
 app.get("/", function(req, res){
@@ -55,29 +55,26 @@ app.get("/", function(req, res){
 
 //CREATE - add new user to DB
 app.post("/users", function(req, res){
-    // get data from form and add to campgrounds array
+    // get data from form and add maybe create a membership list page?
     var name = req.body.name;
     var email = req.body.email;
     var username = req.body.username;
     var password = req.body.password;
     var confirmpw = req.body.confirm;
     var newCampground = {name: name, email: email, username: username, password: password, confirmpw:confirm};
-    // Create a new campground and save to DB
+    // Create a new user and save to DB
     User.create(newUser, function(err, newlyCreated){
         if(err){
             console.log(err);
         } else {
-            //redirect back to campgrounds page
+            //redirect back to membership page?
             res.redirect("/users");
         }
     });
 });
 
-// app.post("/users", function(req,res) {
-// 	// body...
-// });
-app.get("/home2", function(req, res){
-    res.render("home2");
+app.get("/home", function(req, res){
+    res.render("home");
 });//for testing only
 
 app.get("/signup", function(req, res){
@@ -103,9 +100,11 @@ app.get("/login", function(req, res){
 app.get("/logout", function(req, res){
 	res.render("logout");
 });
-app.get("/secret", function(req, res){
-	res.render("secret");
-});
+// app.get("/users", function(req, res){
+//     var name = req.body.name;
+//     var email = req.body.email;
+// 	res.render(name + " -- " + email);
+// });
 
 
 app.listen(process.env.PORT || 3000, function() {

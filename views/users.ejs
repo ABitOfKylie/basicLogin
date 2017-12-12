@@ -1,7 +1,7 @@
 <% include ./partials/header%>
+var users = require("./models/user");
 <<h1>You have arrived to the secret membership page</h1>
 
-<% include ../partials/header %> 
  <div class="container">
      <header class="jumbotron">
          <div class="container">
@@ -19,10 +19,12 @@
                 <div class="thumbnail">
                    <img src=<%= "https://engineering.unl.edu/images/staff/Kayla_Person-small.jpg" %>>
                    <div class="caption">
-                       <h4><%= user.name %></h4>
+                       <h4><%= user.name %> + " - " <%= user.email %></h4>
                    </div>
                    <p>
-                       <!-- <a href="/campgrounds/<%= campground._id %>" class="btn btn-primary">More Info</a> -->
+<!--                     not sure about line below
+ -->
+ a href="/users/<%= user._id %>" class="btn btn-primary"> More Info</a>
                    </p>
                 </div>
             </div>

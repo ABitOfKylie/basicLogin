@@ -1,11 +1,16 @@
 var mongoose =require("mongoose");
 
-var userSchema = new mongoose.Schema({
-	name: String,
+var UserSchema = new mongoose.Schema({
+	firstname: String,
+	lastname: String,
 	email: String,
 	username: String,
 	password: String,
-	confirmpw:String
+	confirmpw:String,
+	gender: Boolean,
+	agreed: Boolean
 });
 
-module.exports = mongoose.model("User", userSchema);
+// UserSchema.plugin(passportLocalMongoose);
+
+module.exports = mongoose.model("User", UserSchema);

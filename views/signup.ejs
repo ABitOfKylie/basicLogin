@@ -1,84 +1,61 @@
 <% include ./partials/header%>
 
-<!-- 	<form>
-		<input type="text" name="username" placeholder="username">
-		<input type="password" name="password" placeholder="password">
-		<button class="btn btn-sm btn-success">Submit</button>
-
-	</form> -->
-<div class="container">
-			<div class="row main">
-				<div class="panel-heading">
-	               <div class="panel-title text-center">
-	               		<h1 class="title">Welcome Aboard</h1>
-	               		<p> We look forward to having you</p>
-	               		<hr />
-	               	</div>
-	            </div> 
-				<div class="main-login main-center">
-					<form class="form-horizontal" method="post" action="/users">
+<!-- REGISTRATION FORM -->
+<div class="text-center" style="padding:50px 0">
+	<div class="logo">Register Here</div>
+	<!-- Main Form -->
+	<div class="login-form-1">
+		<form id="register-form" class="text-left">
+			<div class="login-form-main-message"></div>
+			<div class="main-login-form">
+				<div class="login-group">
+					<div class="form-group">
+						<label for="reg_firstname" class="sr-only">First Name</label>
+						<input type="text" class="form-control" id="reg_firstname" name="reg_firstname" placeholder="First Name">
+					</div>
+					<div class="form-group">
+						<label for="reg_lastname" class="sr-only">Last Name</label>
+						<input type="text" class="form-control" id="reg_lastname" name="reg_lastname" placeholder="Last Name">
+					</div>						
+					<div class="form-group">
+						<label for="reg_email" class="sr-only">Email</label>
+						<input type="text" class="form-control" id="reg_email" name="reg_email" placeholder="email">
+					</div>
+					<div class="form-group">
+						<label for="reg_username" class="sr-only">User name</label>
+						<input type="text" class="form-control" id="reg_username" name="reg_username" placeholder="username">
+					</div>
+					<div class="form-group">
+						<label for="reg_password" class="sr-only">Password</label>
+						<input type="password" class="form-control" id="reg_password" name="reg_password" placeholder="password">
+					</div>
+					<div class="form-group">
+						<label for="reg_password_confirm" class="sr-only">Password Confirm</label>
+						<input type="password" class="form-control" id="reg_password_confirm" name="reg_password_confirm" placeholder="confirm password">
+					</div>
+	
+					<div class="form-group login-group-checkbox">
+						<input type="radio" class="" name="reg_gender" id="male" placeholder="username">
+						<label for="male">male</label>
 						
-						<div class="form-group">
-							<label for="name" class="cols-sm-2 control-label">Your Name</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon glyphicon glyphicon-sunglasses" aria-hidden="true"></span>
-									<input type="text" class="form-control" name="name" id="name"  placeholder="Enter your Name"/>
-								</div>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="email" class="cols-sm-2 control-label">Your Email</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon glyphicon glyphicon-envelope" aria-hidden="true"></span>
-									<input type="text" class="form-control" name="email" id="email"  placeholder="Enter your Email"/>
-								</div>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="username" class="cols-sm-2 control-label">Username</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<!-- <span (fontawesome)class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span> -->
-									<span class="input-group-addon glyphicon glyphicon-grain" aria-hidden="true"></span>
-									<input type="text" class="form-control" name="username" id="username"  placeholder="Enter your Username"/>
-								</div>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="password" class="cols-sm-2 control-label">Password</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password"/>
-								</div>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="confirm name="confirm" class="cols-sm-2 control-label">Confirm Password</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" name="confirm" id="confirm"  placeholder="Confirm your Password"/>
-								</div>
-							</div>
-						</div>
-
-						<div class="form-group ">
-							<button type="button" class="btn btn-primary btn-lg btn-block login-button">Register</button>
-						</div>
-						<div class="login-register">
-				            <a href="/login">Already a member? - Login</a>
-				         </div>
-					</form>
+						<input type="radio" class="" name="reg_gender" id="female" placeholder="username">
+						<label for="female">female</label>
+					</div>
+					
+					<div class="form-group login-group-checkbox">
+						<input type="checkbox" class="" id="reg_agree" name="reg_agree">
+						<label for="reg_agree">i agree with <a href="#">terms</a></label>
+					</div>
 				</div>
+				<button type="submit" class="login-button"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
 			</div>
-		</div>
+			<div class="etc-login-form">
+				<p>already have an account? <a href="/login">login here</a></p>
+			</div>
+		</form>
+	</div>
+	<!-- end:Main Form -->
+</div>
 <% include ./partials/footer%>
 
-<<p>https://bootsnipp.com/snippets/featured/register-page</p>
+<!-- https://bootsnipp.com/snippets/featured/custom-login-registration-amp-forgot-password -->
