@@ -33,9 +33,9 @@ app.use(express.static("public"));
 
 // User.create(
 //      {
-// 	     name: "Tiffany", 
-// 	     email: "diamond@gmail.com",
-// 	     username: "Flashy",
+// 	     name: "Jennifer", 
+// 	     email: "emerald@gmail.com",
+// 	     username: "Demure",
 // 		 password: "password",
 // 		 confirmpw: "password"   
 //      },
@@ -54,24 +54,36 @@ app.get("/", function(req, res){
 });
 
 //CREATE - add new user to DB
-app.post("/users", function(req, res){
+app.post("/signup", function(req, res){
     // get data from form and add maybe create a membership list page?
     var name = req.body.name;
     var email = req.body.email;
     var username = req.body.username;
     var password = req.body.password;
-    var confirmpw = req.body.confirm;
-    var newCampground = {name: name, email: email, username: username, password: password, confirmpw:confirm};
+    var confirm = req.body.confirm;
+    var newUser = {name: name, email: email, username: username, password: password, confirmpw:confirm};
     // Create a new user and save to DB
     User.create(newUser, function(err, newlyCreated){
         if(err){
             console.log(err);
+            res.redirect("signup");
         } else {
             //redirect back to membership page?
-            res.redirect("/users");
+            res.redirect("/members");
         }
     });
 });
+// app.post("/register", function(req, res){
+//     User.register(new User({username: req.body.username}), req.body.password, function(err, user){
+//         if(err){
+//             console.log(err);
+//             return res.render('register');
+//         }
+//         passport.authenticate("local")(req, res, function(){
+//            res.redirect("/secret");
+//         });
+//     });
+// });
 
 app.get("/home", function(req, res){
     res.render("home");
@@ -81,26 +93,45 @@ app.get("/signup", function(req, res){
 	res.render("signup");
 });
 
+//new user signup
 app.post("/signup", function(req, res){
 	User.signup(new User({name: req.body.name}, {email:req.body.email}, {username: req.body.username}), req.body.password, function(err, user){
 		if(err){
 			console.log(err);
-			return res.render('secret');
+			return res.render('/members', {member:newuserinfo});
 		} else {
-			console.log(User);
+			console.log("sign up failed");
 		}
 
 	});
 });
+
 app.get("/login", function(req, res){
 	res.render("login");
 });
 
-// app.post("/login", )
+//login logic
+//middleware
+app.post("/login", passport.authenticate("local", {
+    successRedirect: "/members",
+    failureRedirect: "/login"
+}) ,function(req, res){
+});
+
+app.get("/members", function(req, res){
+    User.find({}, function(err, allusers){
+        if(err){
+            console.log(err);
+        }else{
+            res.render("members", {users:allusers});
+        }
+    });
+});
+
 app.get("/logout", function(req, res){
 	res.render("logout");
 });
-// app.get("/users", function(req, res){
+// app.get("/members", function(req, res){
 //     var name = req.body.name;
 //     var email = req.body.email;
 // 	res.render(name + " -- " + email);
@@ -110,3 +141,4 @@ app.get("/logout", function(req, res){
 app.listen(process.env.PORT || 3000, function() {
     console.log("This server is up and running");
 });
+

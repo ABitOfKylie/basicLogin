@@ -1,17 +1,9 @@
 body{
-/*background: #D6EAF8;
-*/
-/*background: brown;
-*/
-  /*  border: 2px solid black;
-    padding: 25px;
-    background: url(./images/keysShelf.jpg);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;*/
     color:white;
     padding-top: 0;
 }
 
+/*note: container begins in partial header*/
 .container-fluid {
   background-image: url("./images/keysShelf.jpg");
   border: 2px solid burlywood;
@@ -21,12 +13,7 @@ body{
   background-repeat: no-repeat;
   background-blend-mode: multiply;
   color:white;
-
 }
-
-/*.container--blend {
-  background-blend-mode: screen;
-}*/
 
 .navbar{
   background: rgb(65, 54, 48);
@@ -38,25 +25,46 @@ body{
   height:80px;
   padding:0;
 }
+
+.nav>li>a:focus{
+  background-color:transparent;
+}
+
+.nav>li>a:hover{
+  background-color:#d8ba84;
+  border-radius:5px;
+}
 .form-horizontal{
   width:500px;
 }
-/*---------------------------------*/
-/*=== 2. Anchor Link ===*/
+/*=== Anchor Link ===*/
 a {
-  color: #aaaaaa;
-  transition: all ease-in-out 200ms;
+  color: burlywood;
+  background-color: transparent;
+  transition: background-color ease-in-out 500ms;
+  font-weight:900;
+  padding:2px;
 }
 a:hover {
-  color: #333333;
+  color: black;
+  background-color:#linen;
   text-decoration: none;
+  border-radius: 2px;
 }
-/*=== 3. Text Outside the Box ===*/
-.etc-login-form {
-  color: #919191;
+
+/*    
+consider including -webkit transition width: 100px;
+
+    -webkit-transition: width 2s, height 2s, background-color 2s, -webkit-transform 2s;
+    transition: width 2s, height 2s, background-color 2s, transform 2s;
+}*/
+
+/*=== Text Outside the Box ===*/
+.form-box-footer {
+  color: snow;
   padding: 10px 20px;
 }
-.etc-login-form p {
+.form-box-footer p {
   margin-bottom: 5px;
 }
 /*=== 4. Main Form ===*/
@@ -64,10 +72,11 @@ a:hover {
   max-width: 300px;
   border-radius: 5px;
   display: inline-block;
+  position:relative;
 }
-.main-login-form {
+/*.main-login-form {
   position: relative;
-}
+}*/
 .login-form-1 .form-control {
   border: 0;
   box-shadow: 0 0 0;
@@ -95,14 +104,14 @@ a:hover {
 .login-form-1 .form-group:last-child {
   border-bottom: 0;
 }
-.login-group {
+.form-box {
   background: #ffffff;
   opacity:0.9;
   color: rosybrown;
   border-radius: 8px;
   padding: 10px 20px;
 }
-.login-group-checkbox {
+.form-box-checkbox {
   padding: 5px 0;
 }
 /*=== 5. Login Button ===*/
@@ -165,9 +174,9 @@ label.form-invalid:after {
   border-width: 6px;
 }
 /*=== 7. Form - Main Message ===*/
-.login-form-main-message {
+/*.login-form-main-message {
   background: #ffffff;
-  color: #999999;
+  color: lime;
   border-left: 3px solid transparent;
   border-radius: 3px;
   margin-bottom: 8px;
@@ -187,6 +196,6 @@ label.form-invalid:after {
 }
 .login-form-main-message.error {
   border-left-color: #e74c3c;
-}
+}*/
 /*---------------------------------*/
 /*https://bootsnipp.com/snippets/featured/custom-login-registration-amp-forgot-password*/
