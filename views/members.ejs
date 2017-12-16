@@ -19,12 +19,10 @@
                 <div class="thumbnail">
                    <img src=<%= "https://engineering.unl.edu/images/staff/Kayla_Person-small.jpg" %>>
                    <div class="caption">
-                       <h4><%= user.name %> + " - " <%= user.email %></h4>
+                       <h4><%= user.firstname %> <%=user.lastname%> --- <%= user.email %></h4>
                    </div>
                    <p>
-<!--                     not sure about line below
- -->
- a href="/users/<%= user._id %>" class="btn btn-primary"> More Info</a>
+                       <a href="/members/<%= user._id %>" class="btn btn-info">More Info</a>
                    </p>
                 </div>
             </div>

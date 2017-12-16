@@ -1,0 +1,27 @@
+<a href="/">Home</a>
+<h1>Member Info Page</h1>
+
+ <div class="container">     
+     <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                   <img src=<%= "https://engineering.unl.edu/images/staff/Kayla_Person-small.jpg" %>>
+                   <div class="caption">
+                      <h3>Username: <strong><%= user.username%></strong></h3>
+                      <hr>
+                       <h4>First Name: <%= user.firstname %></h4>
+                       <h4>Last Name: <%=user.lastname%></h4>
+                       <h4>Email: <%= user.email %></h4>
+                       <h3>Rating: </h3>
+                   </div>
+                   <p>
+                       <a href="/" class="btn btn-info">Contact <%=user.firstname%></a>
+                   </p>
+                </div>
+            </div>
+    </div>
+</div>
+
+<% include ./partials/footer %>
+

@@ -53,15 +53,25 @@ app.get("/", function(req, res){
     res.render("home");
 });
 
+app.get("/home2", function(req, res){
+    res.render("home2");
+});//for testing only
+
+app.get("/signup", function(req, res){
+	res.render("signup");
+});
+
 //CREATE - add new user to DB
 app.post("/signup", function(req, res){
     // get data from form and add maybe create a membership list page?
-    var name = req.body.name;
+    var firstname = req.body.firstname;
+    var lastname = req.body.lastname;
     var email = req.body.email;
     var username = req.body.username;
     var password = req.body.password;
     var confirm = req.body.confirm;
-    var newUser = {name: name, email: email, username: username, password: password, confirmpw:confirm};
+    var gender = req.body.gender;
+    var newUser = {firstname: firstname, lastname: lastname, email: email, username: username, password: password, confirmpw:confirm};
     // Create a new user and save to DB
     User.create(newUser, function(err, newlyCreated){
         if(err){
@@ -72,38 +82,6 @@ app.post("/signup", function(req, res){
             res.redirect("/members");
         }
     });
-});
-// app.post("/register", function(req, res){
-//     User.register(new User({username: req.body.username}), req.body.password, function(err, user){
-//         if(err){
-//             console.log(err);
-//             return res.render('register');
-//         }
-//         passport.authenticate("local")(req, res, function(){
-//            res.redirect("/secret");
-//         });
-//     });
-// });
-
-app.get("/home", function(req, res){
-    res.render("home");
-});//for testing only
-
-app.get("/signup", function(req, res){
-	res.render("signup");
-});
-
-//new user signup
-app.post("/signup", function(req, res){
-	User.signup(new User({name: req.body.name}, {email:req.body.email}, {username: req.body.username}), req.body.password, function(err, user){
-		if(err){
-			console.log(err);
-			return res.render('/members', {member:newuserinfo});
-		} else {
-			console.log("sign up failed");
-		}
-
-	});
 });
 
 app.get("/login", function(req, res){
@@ -124,6 +102,18 @@ app.get("/members", function(req, res){
             console.log(err);
         }else{
             res.render("members", {users:allusers});
+        }
+    });
+});
+
+app.get("/members/:id", function(req, res){
+    User.findById(req.params.id, function(err, foundmember){
+         if(err){
+            console.log(err + " member not found");
+        } else {
+            console.log(foundmember);
+            //render show template with that campground
+            res.render("memberinfo", {user: foundmember});
         }
     });
 });

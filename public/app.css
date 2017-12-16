@@ -3,6 +3,9 @@ body{
     padding-top: 0;
 }
 
+img{
+  width:100%;
+}
 /*note: container begins in partial header*/
 .container-fluid {
   background-image: url("./images/keysShelf.jpg");
